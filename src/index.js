@@ -1,28 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import styles from "./index.module.css";
 
-class Room extends React.Component {
-  state = {
-    isLightOn: true
+const Room = () => {
+  const [isLightOn, setIsLightOn] = useState(true);
+
+  const flipLight = () => {
+    setIsLightOn(!isLightOn);
   };
 
-  flipLight = () => {
-    this.setState({
-      isLightOn: !this.state.isLightOn
-    });
-  };
+  const lightedness = isLightOn ? "lit" : "dark";
 
-  render() {
-    const lightedness = this.state.isLightOn ? "lit" : "dark";
-    return (
-      <div className={`room ${lightedness}`}>
-        the room is {lightedness}
-        <br />
-        <button onClick={this.flipLight}>flip</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div className={`${styles.room} ${styles[lightedness]}`}>
+      the room is {lightedness}
+      <br />
+      <button onClick={flipLight}>flip</button>
+    </div>
+  );
+};
 
 ReactDOM.render(<Room />, document.getElementById("root"));

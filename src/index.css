@@ -1,27 +1,6 @@
 html,
 body,
-#root,
-.room {
+#root {
   height: 100%;
   margin: 0;
 }
-
-.room {
-  margin: 40px;
-  text-align: center;
-}
-
-button {
-  margin-top: 10px;
-}
-
-.lit {
-  background-color: white;
-  color: black;
-}
-
-.dark {
-  background-color: black;
-  color: white;
-}
-
